@@ -1,27 +1,92 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+@font-face {
+  font-family: "RobotoReg";
+  src: url(./asset/Roboto/Roboto-Regular.ttf);
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "RobotoBold";
+  src: url(./asset/Roboto/Roboto-Bold.ttf);
+  font-weight: 700;
+  font-style: normal;
 }
 
-@media (prefers-color-scheme: dark) {
+*,
+:after,
+:before {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  --foreground-rgb: hsl(234, 29%, 20%);
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+  /* --bg-color:  */
+  --ff-main: "RobotoReg", sans-serif;
+  --ff-bold: "RobotoBold", sans-serif;
+}
+
+/* @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
   }
-}
+} */
 
 body {
-  color: rgb(var(--foreground-rgb));
+  color: hsl(234, 29%, 20%);
+  font-family: var(--ff-main);
+  background: #36384d;
+}
+/* 
+.newsletter{
+  width: 200px;
+  height: 100px;
+} */
+
+.imageContainer {
+}
+
+.textContainer h1 {
+  font-family: var(--ff-bold);
+}
+
+.input {
+  border: 1px solid hsl(231, 7%, 60%);
+}
+
+.input:focus-visible {
+  border: 1px solid #000;
+  outline: unset;
+}
+
+.input:invalid {
+  color: #ff6257;
+}
+
+.buttonSubmit {
+  background-color: hsl(234, 29%, 20%);
+}
+
+.buttonSubmit:hover {
+  background: rgb(255, 83, 121);
   background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    90deg,
+    rgba(255, 83, 121, 1) 0%,
+    rgba(255, 103, 62, 1) 100%
+  );
+}
+
+.label {
+  font-family: var(--ff-bold);
+}
+
+.heroTitle {
+  color: hsl(234, 29%, 20%);
 }
