@@ -41,7 +41,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [Github REPO](https://github.com/Mikoyzskie/fm-newsletter)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Live Site URL: [Solution](https://fm-newsletter-p05z0v98p-mikoyzskie.vercel.app/?vercelToolbarCode=laVALXmtVc7XZK0)
 
 ## My process
 
