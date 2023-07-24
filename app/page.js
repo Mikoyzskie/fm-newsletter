@@ -8,23 +8,18 @@ export default function Home() {
     "Measuring to ensure updates are a success",
     "And much more!",
   ];
-  let list = 1;
 
   const [show, setShow] = useState("hidden");
   const [border, setBorder] = useState("");
   const [thank, setThank] = useState("hidden");
   const [form, setForm] = useState("");
-
-  const input = document.querySelector("#email");
-  let email = "";
-
+  const [email, setEmail] = useState("");
   function checkEmail(event) {
     event.preventDefault();
     if (isValidEmail(event.target.value)) {
     } else {
       setThank("");
       setForm("hidden");
-      return (email = event.target.value);
     }
   }
 
@@ -37,12 +32,17 @@ export default function Home() {
     if (isValidEmail(event.target.value)) {
       setShow("hidden");
       setBorder("");
+      setEmail(event.target.value);
+      console.log(email);
+      return email;
     } else if (event.target.value === "") {
       setShow("hidden");
       setBorder("");
     } else {
       setShow("");
       setBorder("invalid:border-[#FF6257]");
+      setEmail(event.target.value);
+      console.log(email);
     }
   }
 
@@ -73,7 +73,9 @@ export default function Home() {
           </ul>
           <form className="flex flex-col mt-2" onSubmit={checkEmail}>
             <p className="flex justify-between">
-              <label className="label text-xs font-bold">Email address</label>
+              <label htmlFor="email" className="label text-xs font-bold">
+                Email address
+              </label>
               <span
                 className={`labelValid text-xs font-bold text-[#FF6257] peer-invalid:block ${show}`}
               >
@@ -89,6 +91,7 @@ export default function Home() {
               className={`input p-4 rounded-lg mb-5 mt-2 peer ${border}`}
               placeholder="email@company.com"
               required
+              autoComplete="true"
             />
 
             <button
