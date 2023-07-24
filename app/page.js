@@ -13,7 +13,7 @@ export default function Home() {
   const [border, setBorder] = useState("");
   const [thank, setThank] = useState("hidden");
   const [form, setForm] = useState("");
-  const [email, setEmail] = useState("");
+  const [emails, setEmails] = useState("");
   function checkEmail(event) {
     event.preventDefault();
     if (isValidEmail(event.target.value)) {
@@ -32,18 +32,22 @@ export default function Home() {
     if (isValidEmail(event.target.value)) {
       setShow("hidden");
       setBorder("");
-      setEmail(event.target.value);
-      console.log(email);
-      return email;
+      setEmails(event.target.value);
     } else if (event.target.value === "") {
       setShow("hidden");
       setBorder("");
     } else {
       setShow("");
       setBorder("invalid:border-[#FF6257]");
-      setEmail(event.target.value);
-      console.log(email);
+      setEmails(event.target.value);
     }
+  }
+
+  function handleClick() {
+    setThank("hidden");
+    setForm("");
+    const input = document.querySelector("#email");
+    input.value = "";
   }
 
   return (
@@ -137,11 +141,14 @@ export default function Home() {
             Thanks for subscribing!
           </h1>
           <p className="">
-            A confirmation email has been sent to <strong>{email}</strong>.
+            A confirmation email has been sent to <strong>{emails}</strong>.
             Please open it and click the button inside to confirm your
             subscription.
           </p>
-          <button className="buttonSubmit p-4 text-white rounded-lg hover:shadow hover:shadow-[0_20px_25px_-5px_rgba(255,103,62,0.3)] justify-self-end">
+          <button
+            onClick={handleClick}
+            className="buttonSubmit p-4 text-white rounded-lg hover:shadow hover:shadow-[0_20px_25px_-5px_rgba(255,103,62,0.3)] justify-self-end"
+          >
             Dismiss message
           </button>
         </div>
